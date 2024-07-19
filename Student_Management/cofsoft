@@ -10,13 +10,13 @@ class Student{
       Long phoneno;
       boolean addMore=false;
       do{
-         System.out.print("\n Name of the Student: ");
+         System.out.print("\nName of the Student: ");
          name=br.readLine();
          System.out.print("Roll number : ");
          roll_number=Integer.parseInt(br.readLine());
          System.out.print("Grade : ");
          grade=br.readLine();
-         System.out.print("\n Department: ");
+         System.out.print("Department: ");
          dept=br.readLine();
          System.out.print("Telephone Number: ");
          phoneno=Long.parseLong(br.readLine());
@@ -38,7 +38,7 @@ public void readRecords() throws IOException{
       int i=1;
       while((name=file.readLine())!=null){
          System.out.println("Record Number: "+(i++));
-         System.out.println("\nName : "+file.readLine());
+         System.out.println("\nName : "+name);
          System.out.println("Roll number : "+Integer.parseInt(file.readLine()));
          System.out.println("Grade : "+file.readLine());
          System.out.println("Department : "+file.readLine());
@@ -54,25 +54,22 @@ public void readRecords() throws IOException{
 }
 public void searchRecords() throws IOException{
    try{
-       BufferedReader file=new bufferedReader(new FileReader(new FileReader("StudentRecords.txt"));
-       string name;
-       int flag=0;
-       Scanner sc=new Scanner(System.in);
-       System.out.println("Enter Rollnumber of the student to search : ");
-       String roll_number=sc.next();
-       while((name=file.readLine())!=null){
-          if(roll_number.equalsIgnoreCase("y"){
-             System.out.println("Record Found");
-             System.out.println(name);
-             flag=1;
-             break;
-          }
+      BufferedReader file=new bufferedReader(new FileReader(new FileReader("StudentRecords.txt"));
+      int flag=0;
+      System.out.println("Enter Rollnumber of the student to search : ");
+      while((name=file.readLine())!=null){
+         if(roll_number.equalsIgnoreCase("y")){
+            System.out.println("Record Found");
+            System.out.println(name);
+            flag=1;
+            break;
+         }
+      }
+      if (flag==0){
+         System.out.println("Record is not found");
        }
-       if (flag==0){
-          System.out.println("Record is not found");
-       }
-       file.close();
-       showMenu();
+   file.close();
+   showMenu();
    }
    catch(FileNotFoundException e){
       System.out.println("\nERROR : File not found");
@@ -162,6 +159,6 @@ public void showMenu() throws IOException{
 public static void main(String[]args) throws IOException{
    Student s=new Student();
    s.clear();
-   s.showMenu()
+   s.showMenu();
 }
 }
